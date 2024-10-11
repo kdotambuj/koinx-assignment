@@ -37,6 +37,14 @@ cron.schedule('0 */2 * * *', async () => {
     saveCrypto();
   });
 
+
+
+app.get("/",(req,res)=>{
+  return res.status(201).json({
+    message:"APIs are working fine, use stats or deviation api to know more"
+  })
+})
+
 app.listen(PORT,()=>{
     connectDB();
     saveCrypto()

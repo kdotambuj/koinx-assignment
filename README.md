@@ -5,6 +5,12 @@ This project is a server-side application built with **Node.js** and **MongoDB**
 
 ---
 
+## Hosted Site
+
+The API is hosted at: [https://koinx-assignment-4cav.onrender.com](https://koinx-assignment-4cav.onrender.com)
+
+---
+
 ## Requirements
 
 - **Node.js**
@@ -42,13 +48,14 @@ This project is a server-side application built with **Node.js** and **MongoDB**
 ## API Endpoints
 
 1. **Get Latest Cryptocurrency Stats**
-   - **Route**: `/stats`
+   - **Route**: `/api/stats`
    - **Method**: `GET`
    - **Query Params**:
      - `coin`: Must be one of `bitcoin`, `ethereum`, `matic`
+   - **Hosted Endpoint**: [https://koinx-assignment-4cav.onrender.com/api/stats?coin=bitcoin](https://koinx-assignment-4cav.onrender.com/api/stats?coin=bitcoin)
    - **Sample Request**:
      ```bash
-     GET /stats?coin=bitcoin
+     GET /api/stats?coin=bitcoin
      ```
    - **Sample Response**:
      ```json
@@ -60,13 +67,14 @@ This project is a server-side application built with **Node.js** and **MongoDB**
      ```
 
 2. **Get Price Standard Deviation**
-   - **Route**: `/deviation`
+   - **Route**: `/api/deviation`
    - **Method**: `GET`
    - **Query Params**:
      - `coin`: Must be one of `bitcoin`, `ethereum`, `matic`
+   - **Hosted Endpoint**: [https://koinx-assignment-4cav.onrender.com/api/deviation?coin=bitcoin](https://koinx-assignment-4cav.onrender.com/api/deviation?coin=bitcoin)
    - **Sample Request**:
      ```bash
-     GET /deviation?coin=bitcoin
+     GET /api/deviation?coin=bitcoin
      ```
    - **Sample Response**:
      ```json
