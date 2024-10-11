@@ -5,6 +5,8 @@ import axios from "axios";
 import cookieParser from "cookie-parser";
 import connectDB from "./utils/db.js";
 import saveCrypto from "./services/saveCrypto.js"
+import cryptoRoute from "./routes/crypto.route.js"
+import cron from "node-cron"
 dotenv.config({});
 
 
@@ -24,34 +26,19 @@ app.use(express.urlencoded({extended:true}))
 app.use(cors())
 
 // PORT
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 // api
+app.use("/api",cryptoRoute)
 
 
-
-
-const fetchData = async ()=>{
-
-    const url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cmatic-network&vs_currencies=usd&include_market_cap=true&include_24hr_change=true"
-    
-
-    try{
-       const response  =  await fetch(url);
-       const jsonData = await response.json();
-       console.log(jsonData);
-       
-    }
-    catch(error){
-        console.log('Error fetching data from CoinGecko',error);
-        
-    }
-}
-
+cron.schedule('0 */2 * * *', async () => {
+    console.log('Fetching cryptocurrency data...');
+    saveCrypto();
+  });
 
 app.listen(PORT,()=>{
     connectDB();
-    saveCrypto();
-
+    saveCrypto()
     console.log(`Server running on Port ${PORT}`);
 })

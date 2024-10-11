@@ -8,9 +8,9 @@ const saveCrypto = async()=>{
     const data = await fetchCryptoData();
 
     const cryptoArray = [
-    { name: 'Bitcoin', symbol: 'BTC', data: data.bitcoin },
-    { name: 'Ethereum', symbol: 'ETH', data: data.ethereum },
-    { name: 'Matic', symbol: 'MATIC', data: data['matic-network'] }
+    { name: 'bitcoin', symbol: 'BTC', data: data.bitcoin },
+    { name: 'ethereum', symbol: 'ETH', data: data.ethereum },
+    { name: 'matic', symbol: 'MATIC', data: data['matic-network'] }
     ]
 
     for (let crypto of cryptoArray){
